@@ -53,5 +53,3 @@ def click_on_cross_symbol_empty_cart(context):
 def verify_cart_is_empty(context):
     assert '0' in context.driver.find_element(By.ID, "cartItemCountSpan").text
     print('Text in the cart button: ', str(context.driver.find_element(By.ID, "cartItemCountSpan").text), '.')
-
-    #context.driver.quit()
