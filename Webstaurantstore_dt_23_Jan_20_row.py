@@ -21,16 +21,20 @@ driver.implicitly_wait(20)
 # open the url
 driver.get( 'https://www.webstaurantstore.com/' )
 
-# input search string
+# input item into search string
 search = driver.find_element( By.ID, "searchval" )
 search.clear()
 search.send_keys( 'stainless work table' )
 
-# click search
+# click search button
 driver.find_element( By.CSS_SELECTOR, "button.btn.btn-info.banner-search-btn" ).click()
 
 # verify all items with Table in the title are here
 print( 'There are : ', len( driver.find_elements( By.CSS_SELECTOR, "input.btn.btn-cart.btn-small" ) ), 'items.' )
+assert 'Table' in driver.find_element(By.CSS_SELECTOR, "a.description").text
+print( 'There are : ', len( driver.find_elements( By.CSS_SELECTOR, "a.description") ), 'descriptions.' )
+print('Table is here: ', str(driver.find_element(By.CSS_SELECTOR, "a.description").text), '.')
+
 
 # add the last of found items to cart
 driver.find_elements( By.CSS_SELECTOR, "input.btn.btn-cart.btn-small" )[-1].click()
@@ -47,7 +51,7 @@ driver.find_element( By.CSS_SELECTOR, "a.deleteCartItemButton.close" ).click()
 # wait until cart is empthy
 sleep(10)
 
-# verify Your cart is empty
+# verify cart is empty
 assert '0' in driver.find_element(By.ID, "cartItemCountSpan").text
 print('Text in the cart button: ', str(driver.find_element(By.ID, "cartItemCountSpan").text), '.')
 
