@@ -9,7 +9,7 @@ driver.maximize_window()
 driver.implicitly_wait(20)
 
 # SEARCH_STRING = (By.XPATH, "//input[@name='searchval']")
-# SEARCH_STRING = By.ID, "searchval"
+# SEARCH_STRING = (By.ID, "searchval")
 # SEARCH_BTN = (By.CSS_SELECTOR, "button.btn.btn-info.banner-search-btn")
 # ALL_ITEMS_1 = (By.CSS_SELECTOR, "a.description")
 # ALL_ITEMS_2 = (By.CSS_SELECTOR, "input.btn.btn-cart.btn-small")
