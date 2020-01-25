@@ -12,7 +12,7 @@ driver.implicitly_wait(20)
 # SEARCH_BTN = (By.CSS_SELECTOR, "button.btn.btn-info.banner-search-btn")
 # ALL_ITEMS_1 = (By.CSS_SELECTOR, "a.description")
 # ALL_ITEMS_2 = (By.CSS_SELECTOR, "input.btn.btn-cart.btn-small")
-#CART_BTN = (By.CSS_SELECTOR,  "a.menu-btn")
+# CART_BTN = (By.CSS_SELECTOR,  "a.menu-btn")
 # EMPTHY_CART_BTN_1 = (By.XPATH, "//a[@href='/shoppingcart:cart.emptycart?nojs=1']")
 # EMPTHY_CART_BTN_2 = (By.CSS_SELECTOR, "button.btn.btn-primary")
 # EMPTHY_CART_BTN_2 = (By.XPATH, "//div[@class='modal-backdrop fade show']")
@@ -32,15 +32,13 @@ driver.find_element( By.CSS_SELECTOR, "button.btn.btn-info.banner-search-btn" ).
 print( 'There are 1: ', len( driver.find_elements( By.CSS_SELECTOR, "a.description" ) ), 'items' )
 print( 'There are 2: ', len( driver.find_elements( By.CSS_SELECTOR, "input.btn.btn-cart.btn-small" ) ), 'items' )
 
-# add the last of found items to cart
+# add the last of found items to cart and empty cart
 driver.find_elements( By.CSS_SELECTOR, "input.btn.btn-cart.btn-small" )[-1].click()
 driver.find_elements( By.CSS_SELECTOR, "a.menu-btn" )[1].click()
 driver.find_element( By.XPATH, "//a[@href='/shoppingcart:cart.emptycart?nojs=1']" ).click()
 try:
-    driver.find_element(By.XPATH, "//div[@class='modal-backdrop fade show']").click()
+    driver.find_element(By.CSS_SELECTOR, "button.btn.btn-primary")[4].click()
 except ElementClickInterceptedException:
-    driver.find_elements(By.CSS_SELECTOR, "button.btn.btn-primary")[4].click()
-
-sleep(20)
+    driver.find_elements(By.XPATH, "//div[@class='modal-backdrop fade show']").click()
 
 driver.quit()
