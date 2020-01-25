@@ -119,7 +119,7 @@ sleep(10)
 
 # Verify cart is empty
 driver.find_element( *CART_ITEM ).text
-print('Text in the cart button: ', str(driver.find_element( *CART_ITEM ).text), '.')
+print('Text in the cart button: ', str(driver.find_element( *CART_ITEM ).text),'.')
 
 # exit
 driver.quit()
