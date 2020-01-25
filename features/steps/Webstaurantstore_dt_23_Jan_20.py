@@ -25,10 +25,12 @@ def click_search_button(context):
 @then("Verify all items with Table in the title are here")
 def chosen_items_are_here(context):
     print('There are : ', len(context.driver.find_elements(By.CSS_SELECTOR, "input.btn.btn-cart.btn-small")), 'items.')
-    assert 'Table' in context.driver.find_element(By.CSS_SELECTOR, "a.description").text
     print('There are : ', len(context.driver.find_elements(By.CSS_SELECTOR, "a.description")), 'descriptions.')
-    print('Table is here: ', str(context.driver.find_element(By.CSS_SELECTOR, "a.description").text), '.')
-
+    products = context.driver.find_elements(By.CSS_SELECTOR, '.ag-item.gtm-product')
+    for product in list(products):
+        title = product.find_element(By.CSS_SELECTOR, "a.description")
+        assert 'Table' in title.text
+    print('Title:', title.text, '.')
 
 @then("Add the last of found items to cart")
 def add_last_item_to_cart(context):
