@@ -30,7 +30,7 @@ search.send_keys( 'stainless work table' )
 driver.find_element( By.CSS_SELECTOR, "button.btn.btn-info.banner-search-btn" ).click()
 
 # verify all items with Table in the title are here
-print( 'There are : ', len( driver.find_elements( By.CSS_SELECTOR, "input.btn.btn-cart.btn-small" ) ), 'items' )
+print( 'There are : ', len( driver.find_elements( By.CSS_SELECTOR, "input.btn.btn-cart.btn-small" ) ), 'items.' )
 
 # add the last of found items to cart
 driver.find_elements( By.CSS_SELECTOR, "input.btn.btn-cart.btn-small" )[-1].click()
