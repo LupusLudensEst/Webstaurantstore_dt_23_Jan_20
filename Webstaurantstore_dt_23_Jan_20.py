@@ -35,16 +35,20 @@ print( 'There are : ', len( driver.find_elements( By.CSS_SELECTOR, "input.btn.bt
 # add the last of found items to cart
 driver.find_elements( By.CSS_SELECTOR, "input.btn.btn-cart.btn-small" )[-1].click()
 
+# wait until pop-up desappears
+sleep(10)
+
 # click on cart button
 driver.find_elements( By.CSS_SELECTOR, "span.menu-btn-text" )[1].click()
 
 # click on cross symbol empty cart
 driver.find_element( By.CSS_SELECTOR, "a.deleteCartItemButton.close" ).click()
 
-# verify Your cart is empty
-assert 'Your cart is empty.' in driver.find_element(By.CSS_SELECTOR, "div.empty-cart__inner").text
-assert '0' in driver.find_element(By.CSS_SELECTOR, "cartItemCountSpan").text
-print('Text in the cart field: ', driver.find_element(By.CSS_SELECTOR, "div.empty-cart__inner").text, '.')
-print('Text in the cart button: ', driver.find_element(By.ID, "cartItemCountSpan").text, '.')
+# wait until cart is empthy
+sleep(10)
 
-# driver.quit()
+# verify Your cart is empty
+assert '0' in driver.find_element(By.ID, "cartItemCountSpan").text
+print('Text in the cart button: ', str(driver.find_element(By.ID, "cartItemCountSpan").text), '.')
+
+driver.quit()
