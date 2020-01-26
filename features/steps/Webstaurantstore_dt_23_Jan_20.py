@@ -16,10 +16,10 @@ CART_ITEM = (By.ID, "cartItemCountSpan")
 
 @given("I am on Homepage")
 def open_homepage(context):
-    context.driver.get( 'https://www.webstaurantstore.com/' )
+    context.app.main_page.open_page()
 
 
-@then("Input item into search string")
+@then('Input "stainless work table" into search string')
 def input_item_into_search_string(context):
     search = context. driver.find_element( *SEARCH_STRING )
     search.clear()
