@@ -14,3 +14,8 @@ class MainPage(Page):
     def search_word(self, text):
         self.input_text( text, *self.SEARCH_STRING)
 
+    def click_search_button(self, context):
+        self.click(*self.SEARCH_BTN)
+
+
+

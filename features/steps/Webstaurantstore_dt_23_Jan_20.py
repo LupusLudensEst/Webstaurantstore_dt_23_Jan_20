@@ -5,7 +5,6 @@ from selenium.common.exceptions import ElementClickInterceptedException
 from selenium.webdriver.support import expected_conditions as EC
 from behave import given, when, then
 
-SEARCH_BTN = (By.CSS_SELECTOR, "button.btn.btn-info.banner-search-btn")
 ALL_ITEMS_1 = (By.CSS_SELECTOR, "input.btn.btn-cart.btn-small")
 ALL_ITEMS_2 = (By.CSS_SELECTOR, "a.description")
 PRODUCTS = (By.CSS_SELECTOR, '.ag-item.gtm-product')
@@ -23,9 +22,8 @@ def input_item_into_search_string(context, text):
     context.app.main_page.search_word(text)
 
 @then("Click search button")
-def click_search_button(context):
-    context.driver.find_element( *SEARCH_BTN  ).click()
-
+def click_search_btn(context):
+    context.app.main_page.click_search_button(context)
 
 @then("Verify all items with Table in the title are here")
 def chosen_items_are_here(context):
