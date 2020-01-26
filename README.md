@@ -17,3 +17,14 @@ Testcase steps:
 Please put your code to GitHub.com and send the project link.
 
 Thank you.
+===========================================================================================
+If you will install allure(java should be here)-you would be able to see the visual report. 
+See steps:
+$ pip install allure-behave
+$ pip install allure-pytest
+$ pip install pytest-allure-adaptor
+
+to launch tests and generate reports folder: 
+$ behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/
+to extract report into browser: 
+$ allure serve test_results/
