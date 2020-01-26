@@ -5,8 +5,8 @@ from pages.base_page import Page
 class MainPage(Page):
     SEARCH_STRING = (By.ID, "searchval")
     SEARCH_BTN = (By.CSS_SELECTOR, "button.btn.btn-info.banner-search-btn")
-    ALL_ITEMS_1 = (By.CSS_SELECTOR, "input.btn.btn-cart.btn-small")
-    ALL_ITEMS_2 = (By.CSS_SELECTOR, "a.description")
+    ITEMS_TO_CHOOSE = (By.CSS_SELECTOR, "input.btn.btn-cart.btn-small")
+    ITEMS_DESCRIPTIONS = (By.CSS_SELECTOR, "a.description")
     PRODUCTS = (By.CSS_SELECTOR, '.ag-item.gtm-product')
     CART_BTN = (By.CSS_SELECTOR, "span.menu-btn-text")
     EMPTY_CROSS_SIGN = (By.CSS_SELECTOR, "a.deleteCartItemButton.close")
@@ -22,17 +22,19 @@ class MainPage(Page):
 
 # 3.Verify all items with Table in the title are here
     def chosen_items_are_here(self, context):
-        print('There are : ', len(context.driver.find_elements(*self.ALL_ITEMS_1)), 'items.')
-        print('There are : ', len(context.driver.find_elements(*self.ALL_ITEMS_2)), 'descriptions.')
+        print('There are : ', len(context.driver.find_elements(*self.ITEMS_TO_CHOOSE)), 'items.')
+        print('There are : ', len(context.driver.find_elements(*self.ITEMS_DESCRIPTIONS)), 'descriptions.')
         products = self.driver.find_elements(*self.PRODUCTS)
         for product in list(products):
-            title = product.find_element(*self.ALL_ITEMS_2)
+            title = product.find_element(*self.ITEMS_DESCRIPTIONS)
             assert 'Table' in title.text
         print('Title:', title.text, '.')
+        # wait until cart is empthy
+        sleep(10)
 
 # # 4.Add the last of found items to cart
 #     def add_last_item_to_cart(self, context):
-#         self.click(*self.ALL_ITEMS_1)[-1]
+#         self.click(*self.ITEMS_TO_CHOOSE)[-1]
 # # wait until pop-up desappears
 #         sleep(10)
 

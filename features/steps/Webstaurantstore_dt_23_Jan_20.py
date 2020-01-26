@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from behave import given, when, then
 
 CART_BTN = (By.CSS_SELECTOR, "span.menu-btn-text")
+PRODUCTS = (By.CSS_SELECTOR, '.ag-item.gtm-product')
 ALL_ITEMS_1 = (By.CSS_SELECTOR, "input.btn.btn-cart.btn-small")
 EMPTY_CROSS_SIGN = (By.CSS_SELECTOR, "a.deleteCartItemButton.close")
 
