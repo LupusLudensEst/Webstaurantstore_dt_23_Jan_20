@@ -19,12 +19,9 @@ def open_homepage(context):
     context.app.main_page.open_page()
 
 
-@then('Input "stainless work table" into search string')
-def input_item_into_search_string(context):
-    search = context. driver.find_element( *SEARCH_STRING )
-    search.clear()
-    search.send_keys( 'stainless work table' )
-
+@then('Input "{text}" into search string')
+def input_item_into_search_string(context, text):
+    context.app.main_page.search_word(text)
 
 @then("Click search button")
 def click_search_button(context):

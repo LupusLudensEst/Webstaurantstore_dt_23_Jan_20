@@ -10,3 +10,7 @@ class MainPage(Page):
     CART_BTN = (By.CSS_SELECTOR, "span.menu-btn-text")
     EMPTY_CROSS_SIGN = (By.CSS_SELECTOR, "a.deleteCartItemButton.close")
     CART_ITEM = (By.ID, "cartItemCountSpan")
+
+    def search_word(self, text):
+        self.input_text( text, *self.SEARCH_STRING)
+
