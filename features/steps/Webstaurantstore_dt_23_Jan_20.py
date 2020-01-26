@@ -5,7 +5,6 @@ from selenium.common.exceptions import ElementClickInterceptedException
 from selenium.webdriver.support import expected_conditions as EC
 from behave import given, when, then
 
-SEARCH_STRING = (By.ID, "searchval")
 SEARCH_BTN = (By.CSS_SELECTOR, "button.btn.btn-info.banner-search-btn")
 ALL_ITEMS_1 = (By.CSS_SELECTOR, "input.btn.btn-cart.btn-small")
 ALL_ITEMS_2 = (By.CSS_SELECTOR, "a.description")
