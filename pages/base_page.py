@@ -34,3 +34,11 @@ class Page:
         actual_text = self.driver.find_element(*locator).text
         assert expected_text == actual_text  # , f'Expected text {expected_text}, but got {actual_text}'
         #assert expected_text == actual_text, f'Expected text {expected_text}, but got {actual_text}'
+
+    def wait_for_element_to_disappear(self, *locator, error_message=''):
+        self.wait.until(EC.invisibility_of_element_located(locator),
+                   f'Element by locator: {locator} did not disappear and is present.\n{error_message}')
+
+    def wait_for_element_to_be_visible(self, *locator, error_message=''):
+        self.wait.until(EC.visibility_of_element_located(locator),
+                   f'Element by locator: {locator} is not visible.\n{error_message}')
