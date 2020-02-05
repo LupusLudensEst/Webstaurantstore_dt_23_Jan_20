@@ -1,9 +1,4 @@
-from time import sleep
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.common.exceptions import ElementClickInterceptedException
-from selenium.webdriver.support import expected_conditions as EC
-from behave import given, when, then
+from behave import given,then
 
 @given("I am on Homepage")
 def open_homepage(context):
