@@ -4,7 +4,7 @@ from behave import given,then
 def open_homepage(context):
     context.app.main_page.open_page()
 
-@then('Input "{text}" into search string')
+@then('Input {text} into search string')
 def input_item_into_search_string(context, text):
     context.app.main_page.search_word(text)
 
