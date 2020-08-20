@@ -43,13 +43,13 @@ assert 'Table' in title.text
 
 # Add the last of found items to cart
 sleep(8)
-target = driver.find_element(By.CSS_SELECTOR, "input.btn.btn-cart.btn-small")
-actions = ActionChains(driver)
-actions.move_to_element(target)
-sleep(2)
-actions.click(target)
-actions.perform()
-# driver.find_elements( *ITEMS_TO_CHOOSE )[-1].click()
+# target = driver.find_element(By.CSS_SELECTOR, "input.btn.btn-cart.btn-small")
+# actions = ActionChains(driver)
+# actions.move_to_element(target)
+# sleep(2)
+# actions.click(target)
+# actions.perform()
+driver.find_elements( *ITEMS_TO_CHOOSE )[-1].click()
 # wait until pop-up desappears
 sleep(8)
 
@@ -61,18 +61,18 @@ actions.move_to_element(target)
 sleep(2)
 actions.click(target)
 actions.perform()
-# driver.find_element( *CART_BTN ).click()
+driver.find_element( *CART_BTN ).click()
 sleep(8)
 
 
 # Click on cross symbol empty cart
-target = driver.find_element(By.CSS_SELECTOR, "a.deleteCartItemButton.close")
-actions = ActionChains(driver)
-actions.move_to_element(target)
-sleep(2)
-actions.click(target)
-actions.perform()
-# driver.find_element( *EMPTY_CROSS_SIGN ).click()
+# target = driver.find_element(By.CSS_SELECTOR, "a.deleteCartItemButton.close")
+# actions = ActionChains(driver)
+# actions.move_to_element(target)
+# sleep(2)
+# actions.click(target)
+# actions.perform()
+driver.find_element( *EMPTY_CROSS_SIGN ).click()
 # wait until cart is empthy
 sleep(4)
 
