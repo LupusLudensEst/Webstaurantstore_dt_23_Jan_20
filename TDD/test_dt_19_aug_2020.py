@@ -55,24 +55,24 @@ sleep(8)
 
 
 # Click on cart button
-# target = driver.find_element(By.NAME, "cart")
-# actions = ActionChains(driver)
-# actions.move_to_element(target)
-# sleep(2)
-# actions.click(target)
-# actions.perform()
+target = driver.find_element(By.NAME, "cart")
+actions = ActionChains(driver)
+actions.move_to_element(target)
+sleep(2)
+actions.click(target)
+actions.perform()
 driver.find_element( *CART_BTN ).click()
 sleep(8)
 
 
 # Click on cross symbol empty cart
-# target = driver.find_element(By.CSS_SELECTOR, "a.deleteCartItemButton.close")
-# actions = ActionChains(driver)
-# actions.move_to_element(target)
-# sleep(2)
-# actions.click(target)
-# actions.perform()
-driver.find_element( *EMPTY_CROSS_SIGN ).click()
+target = driver.find_element(By.CSS_SELECTOR, "a.deleteCartItemButton.close")
+actions = ActionChains(driver)
+actions.move_to_element(target)
+sleep(2)
+actions.click(target)
+actions.perform()
+# driver.find_element( *EMPTY_CROSS_SIGN ).click()
 # wait until cart is empthy
 sleep(4)
 

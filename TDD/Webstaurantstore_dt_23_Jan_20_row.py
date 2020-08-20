@@ -62,7 +62,7 @@ sleep(2)
 actions.click(target)
 actions.perform()
 driver.find_element( *CART_BTN ).click()
-sleep(8)
+sleep(4)
 
 
 # Click on cross symbol empty cart
