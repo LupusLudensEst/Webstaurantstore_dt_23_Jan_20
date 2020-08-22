@@ -3,6 +3,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 
 driver: WebDriver = webdriver.Chrome()
 driver.maximize_window()
@@ -22,13 +24,13 @@ driver.get( 'https://www.webstaurantstore.com/' )
 
 
 # Input item into search string
-search = driver.find_element( *SEARCH_STRING )
+search = driver.find_element(*SEARCH_STRING)
 search.clear()
-search.send_keys( 'stainless work table' )
+search.send_keys('stainless work table')
 
 
 # Click search button
-driver.find_element( *SEARCH_BTN  ).click()
+driver.find_element(*SEARCH_BTN).click()
 
 
 # Verify all items with Table in the title are here
@@ -43,13 +45,13 @@ assert 'Table' in title.text
 
 # Add the last of found items to cart
 sleep(8)
-# target = driver.find_element(By.CSS_SELECTOR, "input.btn.btn-cart.btn-small")
-# actions = ActionChains(driver)
-# actions.move_to_element(target)
-# sleep(2)
-# actions.click(target)
-# actions.perform()
-driver.find_elements( *ITEMS_TO_CHOOSE )[-1].click()
+target = driver.find_element(By.CSS_SELECTOR, "input.btn.btn-cart.btn-small")
+actions = ActionChains(driver)
+actions.move_to_element(target)
+sleep(2)
+actions.click(target)
+actions.perform()
+# driver.find_elements( *ITEMS_TO_CHOOSE )[-1].click()
 # wait until pop-up desappears
 sleep(8)
 
@@ -61,18 +63,18 @@ actions.move_to_element(target)
 sleep(2)
 actions.click(target)
 actions.perform()
-driver.find_element( *CART_BTN ).click()
-sleep(4)
+# driver.find_element( *CART_BTN ).click()
+sleep(8)
 
 
 # Click on cross symbol empty cart
-# target = driver.find_element(By.CSS_SELECTOR, "a.deleteCartItemButton.close")
-# actions = ActionChains(driver)
-# actions.move_to_element(target)
-# sleep(2)
-# actions.click(target)
-# actions.perform()
-driver.find_element( *EMPTY_CROSS_SIGN ).click()
+target = driver.find_element(By.CSS_SELECTOR, "a.deleteCartItemButton.close")
+actions = ActionChains(driver)
+actions.move_to_element(target)
+sleep(2)
+actions.click(target)
+actions.perform()
+# driver.find_element( *EMPTY_CROSS_SIGN ).click()
 # wait until cart is empthy
 sleep(4)
 
